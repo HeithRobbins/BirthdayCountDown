@@ -14,7 +14,7 @@ class Birthday extends Component {
 
         this.state = {
             startDate: moment(),
-            fromCompleted: false
+            formCompleted: false
         }
 
     }
@@ -27,7 +27,7 @@ class Birthday extends Component {
 
     handleGenerate() {
         this.setState({
-            fromCompleted: true
+            formCompleted: true
         })
     }
 
