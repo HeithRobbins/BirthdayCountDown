@@ -5,12 +5,12 @@ class Clock extends Component {
     constructor(props) {
     super(props)
 
-    this.setState({ timeRemaining: this.getTimeRemaining() });
-
+    this.timer = 0
+    this.birthday = props.birthdayFormState.startDate
     this.getTimeRemaining = this.getTimeRemaining.bind(this);
 
     this.state = {
-        timeRemaining: this.getTimeRemaining(this.props.birthdayFormState.startDate.toString())
+        timeRemaining: this.getTimeRemaining(props.birthdayFormState.startDate.toString())
     }
 
 }
@@ -34,13 +34,16 @@ getTimeRemaining(birthday) {
     }
 }
 
-componentWillMount() {
+componentDidMount() {
+    this.timer = setInterval(() => {
+        const timeRemaining = this.getTimeRemaining(this.birthday)
+        this.setState({ timeRemaining: timeRemaining })
+    }, 1000)
     
 }
 
 render() {
     const data = this.state.timeRemaining
-    console.log('RENDERING')
     return (
         <div>
             <div>DAYS {data.days}</div>
@@ -50,10 +53,6 @@ render() {
         </div>
     )
 }
-
-    componentDidMount() {
-        
-    }
 
 }
 
