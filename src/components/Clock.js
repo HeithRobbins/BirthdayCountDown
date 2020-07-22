@@ -34,6 +34,17 @@ getTimeRemaining(birthday) {
     }
 }
 
+getAge = function() {
+    var bday = new Date(this.birthday)
+    let today = new Date();
+    
+    var distance = bday.getTime() - today.getTime();
+    var daysOld = Math.floor(distance / (1000 * 60 * 60 * 24))
+    var yearsOld = Number((daysOld/365).toFixed(0))
+
+    return yearsOld
+}.bind(this)
+
 componentDidMount() {
     this.timer = setInterval(() => {
         const timeRemaining = this.getTimeRemaining(this.birthday)
@@ -46,10 +57,15 @@ render() {
     const data = this.state.timeRemaining
     return (
         <div>
-            <div>DAYS {data.days}</div>
-            <div>HRS {data.hours}</div>
-            <div>MINS {data.minutes}</div>
-            <div>SECS {data.seconds}</div>
+            <div>
+                <div>DAYS {data.days}</div>
+                <div>HRS {data.hours}</div>
+                <div>MINS {data.minutes}</div>
+                <div>SECS {data.seconds}</div>
+            </div>
+            <div>
+                {<h4> remaining untill you are {this.getAge()}</h4>}
+            </div>
         </div>
     )
 }
