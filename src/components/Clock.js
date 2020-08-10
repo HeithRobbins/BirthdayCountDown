@@ -15,6 +15,10 @@ class Clock extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log(`next props: ${JSON.stringify(nextProps)}`);
+  }
+
   getTimeRemaining(birthday) {
     var bday = new Date(birthday);
     let today = new Date();
@@ -34,7 +38,7 @@ class Clock extends Component {
       if (birthDay > currentDay) {
         //1. day is aftter the current day
         bday.setFullYear(today.getFullYear());
-      } else if (birthMonth < currentDay) {
+      } else if (birthDay < currentDay) {
         //2. day is B4 the current day
         bday.setFullYear(today.getFullYear() + 1);
       }
@@ -73,6 +77,10 @@ class Clock extends Component {
       const timeRemaining = this.getTimeRemaining(this.birthday);
       this.setState({ timeRemaining: timeRemaining });
     }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 
   render() {
