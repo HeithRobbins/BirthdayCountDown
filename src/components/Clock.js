@@ -41,6 +41,8 @@ class Clock extends Component {
       } else if (birthDay < currentDay) {
         //2. day is B4 the current day
         bday.setFullYear(today.getFullYear() + 1);
+      } else if (birthDay == currentDay) {
+        return 0;
       }
     }
 
