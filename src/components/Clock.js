@@ -89,14 +89,19 @@ class Clock extends Component {
     const data = this.state.timeRemaining;
     return (
       <div>
-        {this.state.timeRemaining == 0}
-        <div>
-          <div>DAYS {data.days}</div>
-          <div>HRS {data.hours}</div>
-          <div>MINS {data.minutes}</div>
-          <div>SECS {data.seconds}</div>
-        </div>
-        {<h4> remaining untill you are {this.getAge()}</h4>}
+        {this.state.timeRemaining == 0 ? (
+          <h1>Happy Birthday!</h1>
+        ) : (
+          <div>
+            <div>
+              <div>DAYS {data.days}</div>
+              <div>HRS {data.hours}</div>
+              <div>MINS {data.minutes}</div>
+              <div>SECS {data.seconds}</div>
+            </div>
+            <div>{<h4> remaining untill you are {this.getAge()}</h4>}</div>
+          </div>
+        )}
       </div>
     );
   }
