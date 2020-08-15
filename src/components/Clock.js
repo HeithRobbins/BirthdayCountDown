@@ -38,7 +38,7 @@ class Clock extends Component {
       const birthDay = bday.getDate();
       const currentDay = today.getDate();
       if (birthDay > currentDay) {
-        //1. day is aftter the current day
+        //1. day is after the current day
         bday.setFullYear(today.getFullYear());
       } else if (birthDay < currentDay) {
         //2. day is B4 the current day
@@ -97,17 +97,25 @@ class Clock extends Component {
   render() {
     const data = this.state.timeRemaining;
     return (
-      <div>
+      <div className="countDown">
         {this.state.timeRemaining == 0 ? (
           <h1>Happy Birthday!</h1>
         ) : (
           <div>
-            <div>
-              <div>DAYS {data.days}</div>
-              <div>HRS {data.hours}</div>
-              <div>MINS {data.minutes}</div>
-              <div>SECS {data.seconds}</div>
-            </div>
+            <ul className="countdown__clock">
+              <li>
+                DAYS<p>{data.days}</p>
+              </li>
+              <li>
+                HRS<p>{data.hours}</p>
+              </li>
+              <li>
+                MINS<p>{data.minutes}</p>
+              </li>
+              <li>
+                SECS<p>{data.seconds}</p>
+              </li>
+            </ul>
             <div>{this.renderMessage}</div>
           </div>
         )}

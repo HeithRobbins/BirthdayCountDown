@@ -10,10 +10,10 @@ export default class App extends Component {
           <div className="header_skew">
             <div className="header_subskew">
               <h1>Birthday Countdown</h1>
-              <BirthdayForm />
             </div>
           </div>
         </header>
+        <BirthdayForm />
       </div>
     );
   }
