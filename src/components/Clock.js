@@ -119,7 +119,7 @@ class Clock extends Component {
                 SECS<p>{data.seconds}</p>
               </li>
             </ul>
-            <div>{this.renderMessage}</div>
+            <div className="until-container">{this.renderMessage}</div>
           </div>
         )}
       </div>
