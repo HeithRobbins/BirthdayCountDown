@@ -26,7 +26,7 @@
 .change-date {
   color: white !important;
   position: absolute;
-  left: 20%;
+  left: 21.5%;
   top: 45%;
   font-size: 18px;
   font-weight: 100;
@@ -67,5 +67,5 @@ ul p {
 }
 
 .until-container {
-  @include center-item((-x), -y, );
+  @include center-item((-x), -y);
 }
