@@ -97,12 +97,12 @@ class Clock extends Component {
   render() {
     const data = this.state.timeRemaining;
     return (
-      <div className="countDown">
+      <div className="countdown">
         {this.state.timeRemaining == 0 ? (
           <h1>Happy Birthday!</h1>
         ) : (
           <div>
-            <ul className="countdown__clock">
+            <ul className="countdown_clock">
               <li>
                 DAYS<p>{data.days}</p>
               </li>
